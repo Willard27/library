@@ -1,4 +1,9 @@
 .layout {
     height: 100vh;
-    background-color: gray;
+    background-color: #f6f6f6;
+}
+
+.header_wrap {
+    height: 72px;
+    background: #ffffff;
 }

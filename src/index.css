@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  /* 移除下划线 */
+  text-decoration: none;
+
+  /* 移除颜色变化 */
+  color: inherit;
+
+  /* 移除悬停时的背景色变化 */
+  background-color: transparent;
+
+  /* 移除点击时的焦点轮廓 */
+  outline: none;
+
+  /* 移除悬停和活跃时的边框和背景色变化 */
+  border: none;
+
+  /* 移除默认的字体样式 */
+  font-style: normal;
+
+  /* 移除默认的 padding 和 margin */
+  padding: 0;
+  margin: 0;
+
+  /* 移除悬停和聚焦时的轮廓 */
+  &:hover,
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+}
