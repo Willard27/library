@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   list: ["book1", "book2"],
   count: 1,
+  top3: [],
 };
 
 export const bookSlice = createSlice({
