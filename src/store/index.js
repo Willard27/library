@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { bookSlice } from "./slice/book";
+import bookReducer from "./slices/book";
 
-export default configureStore({
+export const store = configureStore({
   reducer: {
-    book: bookSlice,
+    book: bookReducer,
   },
 });
