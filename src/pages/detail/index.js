@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { redux_book_test, selectCount } from "../../store/slices/book.js";
+import { redux_book_test, selectCount } from "Store/slices/book.js";
 function Detail() {
   const dispatch = useDispatch();
   const value = useSelector(selectCount);

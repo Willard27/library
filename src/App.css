@@ -1,4 +1,6 @@
 .layout {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     background-color: #f6f6f6;
 }
@@ -7,3 +9,10 @@
     height: 72px;
     background: #ffffff;
 }
+
+.content_wrap {
+    flex: 1;
+    margin:  10px 50px;
+    background-color: #fff;
+}
+
