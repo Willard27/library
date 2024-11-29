@@ -1,27 +1,43 @@
 import { Input } from "antd";
-import OneBook from "./components/one_book";
+import Condition from "./components/condition";
 const { Search } = Input;
 function Find() {
   const onSearch = (value, _e, info) => console.log(info?.source, value);
 
-  const books = [];
-  for (let i = 0; i < books.length; i++) {
-    books.push({});
-  }
+  // const result = [];
+  // for (let i = 0; i < result.length; i++) {
+  //   result.push({});
+  // }
   return (
     <div className="find">
       <div className="search_wrap">
-        <Search
-          placeholder="input search text"
-          allowClear
-          onSearch={onSearch}
-          style={{
-            width: 200,
-          }}
-        />
+        <div className="search_input_wrap">
+          <Search
+            placeholder="input search text"
+            allowClear
+            onSearch={onSearch}
+            style={{
+              width: 200,
+            }}
+          />
+        </div>
+        <div className="search_cond_wrap">
+          <Condition
+            attr="editor"
+            conds={[
+              {
+                value: 1,
+                lable: "111",
+              },
+              {
+                value: 2,
+                lable: "222",
+              },
+            ]}
+          />
+        </div>
       </div>
-      <OneBook name="asa" editor="asasa" isbn="1212" />
-      <div className="recommend_wrap">books</div>
+      <div className="search_result_wrap">查询结果</div>
     </div>
   );
 }
