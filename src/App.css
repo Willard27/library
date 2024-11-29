@@ -16,3 +16,10 @@
     background-color: #fff;
 }
 
+.menu_wrap {
+    border-bottom: #000000 solid 2px;
+}
+
+.outlet_wrap {
+    padding: 20px;
+}

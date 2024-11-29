@@ -26,10 +26,12 @@ function Find() {
             attr="editor"
             conds={[
               {
+                id: "assas",
                 value: 1,
                 lable: "111",
               },
               {
+                id: "assasasa",
                 value: 2,
                 lable: "222",
               },
