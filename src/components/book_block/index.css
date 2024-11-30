@@ -1,0 +1,27 @@
+img {
+    display: block;
+    height: 250px;
+    width: 160px;
+}
+
+span {
+    display: block;
+}
+
+.h1 {
+    font-size: 14px;
+    font-weight: 700;
+}
+.p1 {
+    font-size: 12px;
+}
+.p2 {
+    color: #727b84;
+    font-size: 12px;
+}
+
+.rate {
+    display: inline;
+    color: #fa595f;
+}
+

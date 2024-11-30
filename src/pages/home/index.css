@@ -1,0 +1,7 @@
+.recommend_wrap {
+    display: flex;
+}
+
+.book_block_wrap {
+    margin: 10px;
+}

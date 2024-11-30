@@ -1,5 +1,6 @@
-import OneBook from "Components/one_book";
 import Rank from "./components/rank";
+import BookBlock from "Components/book_block";
+import "./index.css";
 
 function Home(params) {
   const top_book = [
@@ -9,6 +10,8 @@ function Home(params) {
       name: "书名",
       author: "作者",
       brief_intro: "好书",
+      rate: 10.0,
+      tag: "都市",
     },
     {
       id: 2,
@@ -31,7 +34,7 @@ function Home(params) {
       书籍是人类进步的阶梯
       <div className="recommend_wrap">
         {top_book.map((book) => (
-          <OneBook key={book.id} info={book} />
+          <BookBlock key={book.id} info={book} />
         ))}
       </div>
       <Rank />
