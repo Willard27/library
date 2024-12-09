@@ -1,6 +1,6 @@
 import Profile from "./components/profile";
 
-function User(params) {
+function MySpace(params) {
   return (
     <div className="user">
       <Profile />
@@ -8,4 +8,4 @@ function User(params) {
   );
 }
 
-export default User;
+export default MySpace;
