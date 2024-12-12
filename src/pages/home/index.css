@@ -1,7 +1,9 @@
-.recommend_wrap {
+.home {
     display: flex;
 }
-
-.book_block_wrap {
-    margin: 10px;
+.recommend-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    gap: 20px;
+    width: 60%;
 }

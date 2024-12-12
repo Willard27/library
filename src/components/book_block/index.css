@@ -1,7 +1,7 @@
 img {
     display: block;
-    height: 250px;
-    width: 160px;
+    height: 210px;
+    width: 140px;
 }
 
 span {
@@ -25,3 +25,7 @@ span {
     color: #fa595f;
 }
 
+/* .book-block-wrap {
+        height: 280px;
+    width: 160px;
+} */

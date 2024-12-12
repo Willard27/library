@@ -2,7 +2,7 @@ import axios from "axios";
 import ee from "./event";
 
 const instance = axios.create({
-  baseURL: "https://localhost:8080/api/",
+  baseURL: "https://localhost:8080",
   timeout: 1000,
   headers: { "X-Custom-Header": "foobar" },
 });

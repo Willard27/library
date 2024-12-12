@@ -5,7 +5,7 @@ import "./index.css";
 function BookBlock(params) {
   const info = params.info;
   return (
-    <div className="book_block_wrap">
+    <div className="book-block-wrap">
       <img src={conver_def} alt="fail to load"></img>
       <span className="h1">{info.name}</span>
       <span className="p2">{info.author}</span>
