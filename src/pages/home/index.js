@@ -1,6 +1,5 @@
 import Rank from "./components/rank";
 import BookBlock from "../../components/book_block";
-import "./index.css";
 import { useSelector } from "react-redux";
 import { selectTopBooklist } from "../../store/slices/booklist";
 
@@ -9,7 +8,7 @@ function Home(params) {
 
   return (
     <div className="flex justify-around">
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-4 gap-4">
         {top_booklist.map((book) => (
           <BookBlock key={book.id} info={book} />
         ))}
