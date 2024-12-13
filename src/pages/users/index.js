@@ -1,7 +1,7 @@
 import React from "react";
 import { Space, Table, Tag } from "antd";
 
-function Manage(params) {
+function Users(params) {
   const columns = [
     {
       title: "Name",
@@ -69,10 +69,10 @@ function Manage(params) {
     },
   ];
   return (
-    <div className="manage">
+    <div className="Users">
       <Table columns={columns} dataSource={data} />
     </div>
   );
 }
 
-export default Manage;
+export default Users;

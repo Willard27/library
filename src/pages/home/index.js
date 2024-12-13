@@ -1,12 +1,10 @@
 import Rank from "./components/rank";
 import BookBlock from "Components/book_block";
 import "./index.css";
-import { useDispatch, useSelector } from "react-redux";
-import { findAll, selectTopBooklist } from "../../store/slices/booklist";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectTopBooklist } from "../../store/slices/booklist";
 
 function Home(params) {
-  const dispatch = useDispatch();
   const top_booklist = useSelector(selectTopBooklist);
 
   return (
