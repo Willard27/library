@@ -1,17 +1,16 @@
 import { StarFilled } from "@ant-design/icons";
 import conver_def from "../../assets/cover_def.png";
-import "./index.css";
 
 function BookBlock(params) {
   const info = params.info;
   return (
-    <div className="book-block-wrap">
-      <img src={conver_def} alt="fail to load"></img>
-      <span className="h1">{info.name}</span>
-      <span className="p2">{info.author}</span>
-      <span className="p1">{info.brief_intro}</span>
-      <span className="p2">
-        <div className="rate">
+    <div className="flex h-1/2 w-36 flex-col">
+      <img className="max-w-none" src={conver_def} alt="fail to load"></img>
+      <span className="text-base">{info.name}</span>
+      <span className="text-sm text-slate-500">{info.author}</span>
+      <span className="text-sm">{info.brief_intro}</span>
+      <span className="text-sm text-slate-500">
+        <div className="inline-block text-orange-500">
           <StarFilled />
           {info.rate}
         </div>

@@ -4,15 +4,15 @@ import Header from "./header";
 
 function Layout() {
   return (
-    <div className="layout">
-      <div className="header_wrap">
+    <div className="flex h-screen w-screen flex-col items-center bg-slate-100">
+      <div className="h-16 w-full bg-white">
         <Header />
       </div>
-      <div className="content_wrap">
+      <div className="m-3 flex size-4/5 flex-1 flex-col bg-white">
         <div className="menu_wrap">
           <Menu />
         </div>
-        <div className="outlet_wrap">
+        <div className="flex-1 p-4">
           <Outlet />
         </div>
       </div>
