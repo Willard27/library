@@ -1,5 +1,4 @@
 import { ReadOutlined, UserOutlined } from "@ant-design/icons";
-import "./index.css";
 import { Avatar, Button, Popover } from "antd";
 
 function Header() {

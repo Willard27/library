@@ -1,5 +1,5 @@
 import { StarFilled } from "@ant-design/icons";
-import def_cover from "../assets/def_cover.png";
+import def_cover from "../../assets/def-cover.png";
 
 function BookBlock(params) {
   const info = params.info;

@@ -1,5 +1,5 @@
 import Rank from "./components/rank";
-import BookBlock from "../../components/book_block";
+import BookBlock from "../../components/book/book-block";
 import { useSelector } from "react-redux";
 import { selectTopBooklist } from "../../store/slices/booklist";
 

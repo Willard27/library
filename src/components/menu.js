@@ -16,7 +16,7 @@ function Menu() {
   const menu = useSelector(selectMenu);
   const activeKey = useSelector(selectActiveKey);
 
-  const pathKey = location.split("/")[1];
+  const menuKey = location.split("/")[1];
 
   // 响应式菜单
   const onChange = (activeKey) => {
@@ -25,7 +25,7 @@ function Menu() {
   };
 
   useEffect(() => {
-    dispatch(setActiveKey(pathKey));
+    dispatch(setActiveKey(menuKey));
   });
 
   return (

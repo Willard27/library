@@ -28,11 +28,11 @@ const initialState = {
 };
 
 export const getMenu = createAsyncThunk(
-  "menu/get_menu",
+  "menu/getMenu",
   async (state, action) => {
     const res = await axios.get("/user/menu");
     return res.data;
-  }
+  },
 );
 
 export const menuSlice = createSlice({
