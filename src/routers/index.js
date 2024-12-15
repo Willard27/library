@@ -18,11 +18,15 @@ export const routes = {
 
   books: {
     path: "/books",
-    // 图书管理
+    // 书单管理
   },
   users: {
     path: "/users",
     // 用户管理
+  },
+  records: {
+    path: "/records",
+    // 书本管理
   },
 };
 
