@@ -1,7 +1,7 @@
-import Rank from "./components/rank";
-import BookBlock from "../../components/book/book-block";
+import Rank from "../components/echarts/rank";
+import BookBlock from "../components/book/book-block";
 import { useSelector } from "react-redux";
-import { selectTopBooklist } from "../../store/slices/booklist";
+import { selectTopBooklist } from "../store/slices/booklist";
 
 function Home(params) {
   const top_booklist = useSelector(selectTopBooklist);

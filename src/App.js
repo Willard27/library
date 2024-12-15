@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { routes } from "./route.config";
 import Login from "./pages/login";
 import Layout from "./components/layout";
 import Home from "./pages/home";
@@ -7,6 +6,7 @@ import Find from "./pages/find";
 import Profile from "./pages/profile";
 import Books from "./pages/books";
 import Users from "./pages/users";
+import { routes } from "./routers";
 
 function App() {
   return (

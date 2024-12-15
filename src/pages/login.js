@@ -1,10 +1,15 @@
 import React from "react";
-import { Button, Form, Input } from "antd";
-import axios from "../../utils/http";
+import { Button, Checkbox, Form, Input } from "antd";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Login() {
+  const navigate = useNavigate();
+
   const onFinish = async (values) => {
     const res = await axios.post("/user/login", values);
-    if (res.code === 0) {
+    console.log(res);
+    if (res.data.code === 0) {
+      navigate("/home");
     }
   };
   const onFinishFailed = (errorInfo) => {
@@ -29,7 +34,7 @@ function Login() {
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          autoComplete="off"
+          autoComplete="current-password"
         >
           <Form.Item
             label="账号"
@@ -56,9 +61,12 @@ function Login() {
           >
             <Input.Password />
           </Form.Item>
+          <Form.Item name="remember" valuePropName="checked" label={null}>
+            <Checkbox>记住我</Checkbox>
+          </Form.Item>
 
           <Form.Item label={null}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="post">
               登录
             </Button>
           </Form.Item>

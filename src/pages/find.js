@@ -1,5 +1,5 @@
 import { Empty, Input } from "antd";
-import Condition from "./components/filter";
+import Condition from "../components/filter";
 const { Search } = Input;
 function Find() {
   let id = 0;

@@ -7,7 +7,7 @@ import {
   setActiveKey,
 } from "../store/slices/menu";
 import { useEffect } from "react";
-import { routes } from "../route.config";
+import { routes } from "../routers";
 
 function Menu() {
   const dispatch = useDispatch();

@@ -1,12 +1,25 @@
 import { ReadOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Popover } from "antd";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
   const url = "";
+
   const content = (
     <div className="grid grid-cols-1 gap-1">
       <Button>个人空间</Button>
-      <Button>退出登录</Button>
+      <Button
+        onClick={async () => {
+          const res = await axios.post("/user/logout");
+          if (res.data.code === 0) {
+            navigate("/login");
+          }
+        }}
+      >
+        退出登录
+      </Button>
     </div>
   );
 

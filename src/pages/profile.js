@@ -1,5 +1,4 @@
 import { Button } from "antd";
-import "./index.css";
 import { useEffect } from "react";
 
 function Profile(params) {
