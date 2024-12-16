@@ -10,7 +10,7 @@ function BookBlock(params) {
       <span className="text-xs text-slate-500">{info.author}</span>
       <span className="h-8 text-xs">{info.brief_intro}</span>
       <span className="text-xs text-slate-500">
-        <div className="inline-block text-orange-500">
+        <div className="inline-block text-yellow-400">
           <StarFilled />
           {info.rate}
         </div>

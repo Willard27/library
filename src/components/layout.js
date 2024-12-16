@@ -1,8 +1,16 @@
 import { Outlet } from "react-router-dom";
 import Menu from "./menu";
 import Header from "./header";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getMenu } from "../store/slices/menu";
 
 function Layout() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMenu());
+  });
   return (
     <div className="flex h-screen w-screen flex-col items-center bg-slate-100">
       <div className="h-16 w-full bg-white">

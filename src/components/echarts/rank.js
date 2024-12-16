@@ -1,12 +1,23 @@
 import * as echarts from "echarts/core";
-import { GridComponent, LegendComponent } from "echarts/components";
+import {
+  DatasetComponent,
+  GridComponent,
+  TransformComponent,
+} from "echarts/components";
 import { BarChart } from "echarts/charts";
 import { CanvasRenderer } from "echarts/renderers";
+
 import { useEffect } from "react";
 
 function Rank() {
   useEffect(() => {
-    echarts.use([GridComponent, LegendComponent, BarChart, CanvasRenderer]);
+    echarts.use([
+      DatasetComponent,
+      GridComponent,
+      TransformComponent,
+      BarChart,
+      CanvasRenderer,
+    ]);
 
     var chartDom = document.getElementById("rank");
     var myChart = echarts.init(chartDom);
@@ -17,43 +28,44 @@ function Rank() {
       data.push(Math.round(Math.random() * 200));
     }
     option = {
-      xAxis: {
-        max: "dataMax",
-      },
-      yAxis: {
-        type: "category",
-        data: ["A", "B", "C", "D", "E"],
-        inverse: true,
-        animationDuration: 300,
-        animationDurationUpdate: 300,
-        max: 2, // only the largest 3 bars will be displayed
-      },
-      series: [
+      dataset: [
         {
-          realtimeSort: true,
-          name: "X",
-          type: "bar",
-          data: data,
-          label: {
-            show: true,
-            position: "right",
-            valueAnimation: true,
+          dimensions: ["name", "age", "profession", "score", "date"],
+          source: [
+            ["Hannah Krause", 41, "Engineer", 314, "2011-02-12"],
+            ["Zhao Qian", 20, "Teacher", 351, "2011-03-01"],
+            ["Jasmin Krause ", 52, "Musician", 287, "2011-02-14"],
+            ["Li Lei", 37, "Teacher", 219, "2011-02-18"],
+            ["Karle Neumann", 25, "Engineer", 253, "2011-04-02"],
+            ["Adrian Groß", 19, "Teacher", "-", "2011-01-16"],
+            ["Mia Neumann", 71, "Engineer", 165, "2011-03-19"],
+            ["Böhm Fuchs", 36, "Musician", 318, "2011-02-24"],
+            ["Han Meimei", 67, "Engineer", 366, "2011-03-12"],
+          ],
+        },
+        {
+          transform: {
+            type: "sort",
+            config: { dimension: "score", order: "desc" },
           },
         },
       ],
-      legend: {
-        show: true,
+      xAxis: {
+        type: "category",
+        axisLabel: { interval: 0, rotate: 30 },
       },
-      animationDuration: 0,
-      animationDurationUpdate: 3000,
-      animationEasing: "linear",
-      animationEasingUpdate: "linear",
+      yAxis: {},
+      series: {
+        type: "bar",
+        encode: { x: "name", y: "score" },
+        datasetIndex: 1,
+      },
     };
 
     option && myChart.setOption(option);
   }, []);
 
-  return <div id="rank" style={{ height: "200px", width: "400px" }}></div>;
+  return <div id="rank" className="h-64"></div>;
 }
 
 export default Rank;

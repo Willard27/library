@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import axios from "../utils/http";
 import { useNavigate } from "react-router-dom";
 function Login() {
@@ -16,8 +16,9 @@ function Login() {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div className="h-screen w-screen">
-      <div className="grid size-full place-items-center bg-gradient-to-r from-cyan-500 to-blue-500 bg-cover">
+    <div className="grid h-screen w-screen place-items-center bg-gradient-to-r from-cyan-500 to-blue-500 bg-cover">
+      <div className="flex h-1/2 w-1/4 flex-col items-center justify-around rounded-md bg-white p-5">
+        <div className="font-serif text-2xl">登录</div>
         <Form
           name="basic"
           labelCol={{
@@ -60,9 +61,6 @@ function Login() {
             ]}
           >
             <Input.Password />
-          </Form.Item>
-          <Form.Item name="remember" valuePropName="checked" label={null}>
-            <Checkbox>记住我</Checkbox>
           </Form.Item>
 
           <Form.Item label={null}>

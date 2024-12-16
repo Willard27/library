@@ -1,4 +1,4 @@
-export const routes = {
+export const router = {
   login: {
     path: "/login",
     // 登录页
@@ -29,7 +29,3 @@ export const routes = {
     // 书本管理
   },
 };
-
-export const user_menu = [];
-export const admin_menu = [];
-export const spadmin_menu = [];

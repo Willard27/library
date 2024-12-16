@@ -7,7 +7,7 @@ import {
   setActiveKey,
 } from "../store/slices/menu";
 import { useEffect } from "react";
-import { routes } from "../routers";
+import { router } from "../routers";
 
 function Menu() {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ function Menu() {
 
   // 响应式菜单
   const onChange = (activeKey) => {
-    navigate(routes[activeKey].path);
+    navigate(router[activeKey].path);
     dispatch(setActiveKey(activeKey));
   };
 
