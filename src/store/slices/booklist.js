@@ -76,14 +76,15 @@ const initialState = {
       tag: "时代记忆",
     },
   ],
+  allBooks: [],
 };
 
 export const findAll = createAsyncThunk(
   "booklist/get",
   async (state, action) => {
-    const res = await axios.get("/user");
-    console.log(res);
-    return res;
+    const res = await axios.get("/booklist/all_books");
+    console.log("qqqqq", res);
+    return res.data.data;
   },
 );
 
@@ -94,12 +95,24 @@ export const booklistSlice = createSlice({
     add_booklist: (state, action) => {},
   },
   extraReducers: (builder) => {
-    builder.addCase(findAll.fulfilled, (state, res) => {});
+    builder.addCase(findAll.fulfilled, (state, res) => {
+      const payload = res.payload;
+      for (let i = 0; i < payload.length; i++) {
+        payload[i] = {
+          key: payload[i].ISBN,
+          ...payload[i],
+        };
+      }
+
+      state.allBooks = payload;
+    });
   },
 });
 
 export const { add_booklist } = booklistSlice.actions;
 
 export const selectTopBooklist = (state) => state.booklist.top_booklist;
+
+export const selectAllBooks = (state) => state.booklist.allBooks;
 
 export default booklistSlice.reducer;
