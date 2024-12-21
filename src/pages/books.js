@@ -6,16 +6,24 @@ import {
   Input,
   InputNumber,
   Modal,
+  Popover,
   Table,
   Tag,
 } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { findAll, selectAllBooks } from "../store/slices/booklist";
+import {
+  findAll,
+  selectAddRow,
+  selectAllBooks,
+  setAddRow,
+} from "../store/slices/booklist";
 import { useForm } from "antd/es/form/Form";
 import axios from "../utils/http";
 function Books() {
   const dispatch = useDispatch();
   const data = useSelector(selectAllBooks);
+  const addRow = useSelector(selectAddRow);
+  const [cnt, setCnt] = useState(0);
 
   const columns = [
     {
@@ -53,10 +61,18 @@ function Books() {
       title: "操作",
       key: "operation",
       dataIndex: "operation",
-      render: () => (
-        <Button color="primary" variant="text">
-          {"继续添加"}
-        </Button>
+      render: (_, record) => (
+        <Popover content={content} trigger="click">
+          <Button
+            color="primary"
+            variant="text"
+            onClick={() => {
+              dispatch(setAddRow(record.ISBN));
+            }}
+          >
+            {"继续添加"}
+          </Button>
+        </Popover>
       ),
       width: "20px",
     },
@@ -78,6 +94,21 @@ function Books() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const onclick = async () => {
+    // console.log("qq", addRow, cnt);
+    await axios.post("/book/add_books_again", { cnt: cnt, ISBN: addRow });
+  };
+
+  const content = (
+    <div>
+      <InputNumber
+        className="mr-2"
+        min={1}
+        onChange={(value) => setCnt(value)}
+      />
+      <Button onClick={onclick}>确认</Button>
+    </div>
+  );
 
   useEffect(() => {
     dispatch(findAll());

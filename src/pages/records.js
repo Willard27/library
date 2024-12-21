@@ -30,17 +30,26 @@ function Records() {
       key: "bid",
     },
     {
+      title: "操作",
+      dataIndex: "action",
+      key: "action",
+      render: (_, record) => {
+        return record.action === true ? "借书" : "还书";
+      },
+    },
+    {
       title: "借阅人",
       dataIndex: "uid",
       key: "uid",
       width: 200,
     },
-    {
-      title: "负责人",
-      dataIndex: "",
-      key: "",
-      width: 200,
-    },
+
+    // {
+    //   title: "负责人",
+    //   dataIndex: "",
+    //   key: "",
+    //   width: 200,
+    // },
     {
       title: "时间",
       dataIndex: "time",
