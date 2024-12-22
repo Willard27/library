@@ -3,6 +3,10 @@ export const router = {
     path: "/login",
     // 登录页
   },
+  register: {
+    path: "/register",
+    // 登录页
+  },
   home: {
     path: "/home",
     // 首页

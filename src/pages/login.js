@@ -64,8 +64,11 @@ function Login() {
           </Form.Item>
 
           <Form.Item label={null}>
-            <Button type="primary" htmlType="post">
+            <Button className="mr-2" type="primary" htmlType="post">
               登录
+            </Button>
+            <Button type="default" onClick={() => navigate("/register")}>
+              注册
             </Button>
           </Form.Item>
         </Form>

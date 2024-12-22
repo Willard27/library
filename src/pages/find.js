@@ -59,19 +59,34 @@ function Find() {
       <div className="">
         {result.length > 0 ? (
           <List
+            pagination={{
+              position: "bottom",
+              align: "end",
+              pageSize: 8,
+            }}
             grid={{
               gutter: 16,
               column: 4,
             }}
             dataSource={result}
             renderItem={(item) => (
-              <List.Item>
-                <Card title={item.bName}>
-                  <p>{item.author}</p>
-                  <p>{item.editor}</p>
-                  <p>{item.tag}</p>
-                </Card>
-              </List.Item>
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Card: {
+                      fontFamily: "serif",
+                    },
+                  },
+                }}
+              >
+                <List.Item>
+                  <Card title={item.bName}>
+                    <p className="font-sans text-sm">作者：{item.author}</p>
+                    <p className="font-sans text-sm">出版社：{item.editor}</p>
+                    <p className="font-sans text-sm">分类：{item.tag}</p>
+                  </Card>
+                </List.Item>
+              </ConfigProvider>
             )}
           />
         ) : (

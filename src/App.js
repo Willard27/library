@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import ee from "./utils/event";
 import { message } from "antd";
 import Records from "./pages/records";
+import Register from "./pages/register";
 
 function App() {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ function App() {
           element={<Navigate to={router.login.path}></Navigate>}
         ></Route>
         <Route path={router.login.path} element={<Login />}></Route>
+        <Route path={router.register.path} element={<Register />}></Route>
         <Route element={<Layout />}>
           <Route path={router.home.path} element={<Home />}></Route>
           <Route path={router.find.path} element={<Find />}></Route>
