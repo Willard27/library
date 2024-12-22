@@ -1,16 +1,33 @@
-import { ConfigProvider, Empty, Input, Switch } from "antd";
+import { Card, ConfigProvider, Empty, Input, List, Switch } from "antd";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { findByCondition, selectFindResult } from "../store/slices/booklist";
 const { Search } = Input;
 function Find() {
-  const onSearch = (value, _e, info) => console.log(info?.source, value);
+  const dispatch = useDispatch();
 
-  // const result = [];
-  // for (let i = 0; i < result.length; i++) {
-  //   result.push({});
-  // }
+  const [searchType, setSearchType] = useState("书名");
+  const result = useSelector(selectFindResult);
+  const onSearch = (value, _e, info) => {
+    const condition = searchType === "书名" ? "title" : "tag";
+    // console.log(info?.source, value);
+    if (info?.source === "input") {
+      // console.log("search", value, searchType);
+      dispatch(findByCondition({ value, condition }));
+    }
+  };
+
+  const onchange = (e) =>
+    e === true ? setSearchType("书名") : setSearchType("分类");
+
+  useEffect(() => {
+    dispatch(findByCondition({ value: "", condition: "title" }));
+  }, [dispatch]);
+
   return (
     <div className="find">
       <div className="search_wrap">
-        <div className="flex flex-row items-center justify-end">
+        <div className="mb-2 flex flex-row items-center justify-end">
           <ConfigProvider
             theme={{
               components: {
@@ -25,6 +42,7 @@ function Find() {
               className="mx-2"
               checkedChildren="书名"
               unCheckedChildren="分类"
+              onChange={onchange}
               defaultChecked
             />
           </ConfigProvider>
@@ -38,8 +56,27 @@ function Find() {
           />
         </div>
       </div>
-      <div className="search_result_wrap">
-        <Empty />
+      <div className="">
+        {result.length > 0 ? (
+          <List
+            grid={{
+              gutter: 16,
+              column: 4,
+            }}
+            dataSource={result}
+            renderItem={(item) => (
+              <List.Item>
+                <Card title={item.bName}>
+                  <p>{item.author}</p>
+                  <p>{item.editor}</p>
+                  <p>{item.tag}</p>
+                </Card>
+              </List.Item>
+            )}
+          />
+        ) : (
+          <Empty description="换个关键词吧..." />
+        )}
       </div>
     </div>
   );

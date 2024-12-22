@@ -9,7 +9,7 @@ function Header() {
 
   const content = (
     <div className="grid grid-cols-1 gap-1">
-      <Button>个人空间</Button>
+      <Button onClick={() => {}}>个人空间</Button>
       <Button
         onClick={async () => {
           const res = await axios.post("/user/logout");
